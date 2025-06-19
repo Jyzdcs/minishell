@@ -262,7 +262,7 @@ Ce projet est développé dans le cadre pédagogique de l'École 42. Utilisation
 
 <div align="center">
 
-**Fait avec ❤️ par [Votre Nom] • École 42**
+**Fait avec rage par famasito et mimo • École 42**
 
 [⬆ Retour en haut](#-minishell)
 
