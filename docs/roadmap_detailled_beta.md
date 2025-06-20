@@ -49,15 +49,15 @@
 
 ## Expander
 
-**Objectif :** Gérer l'expansion des variables d'environnement et des codes spéciaux après le parsing. Par exemple, remplacer $VARNAME par sa valeur dans l'environnement, et $? par le code de retour de la dernière commande. Les expansions respectent les quotes (pas d'expansion dans les simples quotes).
+**Objectif :** Gérer l'expansion des variables d'environnement et des codes spéciaux après le parsing. Par exemple, remplacer \$VARNAME par sa valeur dans l'environnement, et \$? par le code de retour de la dernière commande. Les expansions respectent les quotes (pas d'expansion dans les simples quotes).
 
-**Notions théoriques :** La substitution shell : tout motif commençant par $ suivi d'un nom est substitué par la valeur d'une variable d'environnement (comme $HOME, $PATH, etc.) ou par $?. Attention, dans une chaîne entre quotes simples ('…'), on ne fait aucune substitution. En revanche, entre doubles quotes, on remplace $VAR par la valeur, et "$HOME" se comporte comme $HOME, tandis que '$HOME' reste littéral.
+**Notions théoriques :** La substitution shell : tout motif commençant par $ suivi d'un nom est substitué par la valeur d'une variable d'environnement (comme \$HOME, \$PATH, etc.) ou par \$?. Attention, dans une chaîne entre quotes simples ('…'), on ne fait aucune substitution. En revanche, entre doubles quotes, on remplace \$VAR par la valeur, et "$HOME" se comporte comme $HOME, tandis que '$HOME' reste littéral.
 
-**Travail en binôme :** Au début du bloc Expander, travaillez ensemble pour énumérer les cas (variables simples, $?, variables non définies, quotes). Ensuite séparez-vous : un·e peut implémenter la recherche et le remplacement des $VARNAME dans les tokens (avec getenv()), l'autre la gestion de $? et les cas particuliers.
+**Travail en binôme :** Au début du bloc Expander, travaillez ensemble pour énumérer les cas (variables simples, \$?, variables non définies, quotes). Ensuite séparez-vous : un·e peut implémenter la recherche et le remplacement des \$VARNAME dans les tokens (avec getenv()), l'autre la gestion de $? et les cas particuliers.
 
 **Étapes pratiques :**
 
-1. Pour chaque token de type ARG (ou CMD s'il contient $), parcourir sa chaîne à la recherche de $.
+1. Pour chaque token de type ARG (ou CMD s'il contient \$), parcourir sa chaîne à la recherche de $.
 2. Si $? est trouvé, remplacer par la valeur string du code de retour (int) de la dernière commande.
 3. Sinon extraire le nom de variable (lettres, chiffres, underscore) après $, récupérer sa valeur depuis l'environnement (getenv()) et remplacer $NOM par cette valeur (ou chaîne vide si indéfini).
 4. Gérer correctement les quotes : ne pas toucher aux $ situés dans des segments en quotes simples.
