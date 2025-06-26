@@ -66,5 +66,6 @@ char	**ft_split(char const *s, char c);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 t_list	*ft_lstnew(void	*content);
 t_list	*ft_lstlast(t_list *lst);
+int		ft_countwords(char const *s, char c);
 
 #endif

@@ -1,7 +1,11 @@
 NAME = minishell
 
 SRCS = $(addprefix src/, \
-						main.c )
+						main.c \
+						parser/parsing.c \
+						expander/expanding.c \
+						lexer/lexer.c \
+						utils/tools.c utils/trees.c \)
 
 OBJS = $(SRCS: src/%.c=objs/%.o)
 
