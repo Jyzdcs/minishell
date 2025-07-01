@@ -5,22 +5,23 @@ SRCS = $(addprefix src/, \
 						parser/parsing.c \
 						expander/expanding.c \
 						lexer/lexer.c \
-						utils/tools.c utils/trees.c \)
+						utils/tools.c \
+						utils/trees.c )
 
-OBJS = $(SRCS: src/%.c=objs/%.o)
+OBJS = $(SRCS:src/%.c=objs/%.o)
 
 LIBFT = include/libft/libft.a
 
-FLAGS = -Wall -Wextra -Werror -lreadline -lhistory
+FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	@cc -o $@ $^ -L include/libft -lft $(FLAGS)
+	@cc -o $@ $^ -L include/libft -lft -lreadline -lhistory
 	@echo COMPILED
 
 objs/%.o: src/%.c
-	@mkdir -p objs
+	@mkdir -p $(dir $@)
 	@cc $(FLAGS) -I include/libft -c $< -o $@
 
 $(LIBFT):

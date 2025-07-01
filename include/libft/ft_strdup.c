@@ -11,16 +11,6 @@
 /* ************************************************************************** */
 #include "libft.h"
 
-static int	ft_len(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
 char	*ft_strdup(const char *s)
 {
 	char	*cp;
@@ -28,7 +18,7 @@ char	*ft_strdup(const char *s)
 	int		i;
 
 	i = 0;
-	len = ft_len(s);
+	len = ft_strlen(s);
 	cp = malloc(sizeof(char) * len + 1);
 	if (cp == NULL)
 		return (NULL);
