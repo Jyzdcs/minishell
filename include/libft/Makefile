@@ -36,22 +36,22 @@ BONUS_OBJ = $(BONUS:.c=.o)
 # Name est la cible que je defini.
 # Elle depend de OBJ (verif si le contenu de obj est a jour) et execute linstruction
 $(NAME): $(OBJ)
-	$(AR) $(NAME) $(OBJ)
+	@$(AR) $(NAME) $(OBJ)
 
 all: $(NAME)
 
 # Insturction pour re compiler un fichier non mis a jour,
 # Cest une regle implicite par defaut personnaliser
 .c.o:
-	${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
+	@${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 bonus: $(NAME) $(BONUS_OBJ)
-	$(AR) $(NAME) $(BONUS_OBJ)
+	@$(AR) $(NAME) $(BONUS_OBJ)
 
 clean: 
-	rm -rf $(OBJ) $(BONUS:.c=.o)
+	@rm -rf $(OBJ) $(BONUS:.c=.o)
 
 fclean: clean
-	rm -rf $(NAME)
+	@rm -rf $(NAME)
 
 re: fclean all
