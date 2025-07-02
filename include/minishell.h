@@ -3,33 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bguerrou <boualemguerroumi21@gmail.com>    +#+  +:+       +#+        */
+/*   By: kclaudan <kclaudan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 17:02:20 by bguerrou          #+#    #+#             */
-/*   Updated: 2025/06/25 11:08:31 by bguerrou         ###   ########.fr       */
+/*   Updated: 2025/07/02 16:19:49 by kclaudan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
+# include "libft/libft.h"
+# include "luffy.h"
+# include <readline/history.h>
+# include <readline/readline.h>
 # include <stdio.h>
 # include <stdlib.h>
-# include <readline/readline.h>
-# include <readline/history.h>
-# include "libft/libft.h"
 
-# include "luffy.h"
-
-// Structure d'arbre binaire pour interpréter les commandes
-typedef struct s_tree
+typedef struct s_line
 {
-	char			*content;
-	struct s_tree	*left;
-	struct s_tree	*right;
-}					t_tree;
-
-t_tree	*build_tree(char **expr, int left, int right, int prio);
-void	free_tree(t_tree *tree);
+	char	*prompt;
+	char	**cmnd;
+	int		cmnd_size;
+}			t_line;
 
 #endif
