@@ -5,10 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kclaudan <kclaudan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/02 00:00:00 by kclaudan          #+#    #+#             */
-/*   Updated: 2025/07/02 23:16:00 by kclaudan         ###   ########.fr       */
+/*   Created: 2025/07/02 23:43:57 by kclaudan          #+#    #+#             */
+/*   Updated: 2025/07/02 23:44:01 by kclaudan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef EXPANDER_UTILS_H
 # define EXPANDER_UTILS_H

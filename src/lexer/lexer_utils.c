@@ -1,19 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lexer_utils.h                                      :+:      :+:    :+:   */
+/*   lexer_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kclaudan <kclaudan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 00:00:00 by kclaudan          #+#    #+#             */
-/*   Updated: 2025/07/02 23:50:19 by kclaudan         ###   ########.fr       */
+/*   Updated: 2025/07/03 00:01:13 by kclaudan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LEXER_UTILS_H
-# define LEXER_UTILS_H
-# include "lexer.h"
-# include <stdbool.h>
+#include "lexer.h"
+#include "lexer_utils.h"
 
 /**
  * @brief Trouve la quote fermante correspondante
@@ -22,7 +20,14 @@
  * @param quote_char Caractère de quote à chercher
  * @return int Position de la quote fermante, -1 si non trouvée
  */
-int		find_closing_quote(char *str, int start, char quote_char);
+int	find_closing_quote(char *str, int start, char quote_char)
+{
+	// TODO: Implementation
+	(void)str;
+	(void)start;
+	(void)quote_char;
+	return (-1);
+}
 
 /**
  * @brief Extrait une sous-chaîne entre deux positions (helper pour quotes)
@@ -31,33 +36,33 @@ int		find_closing_quote(char *str, int start, char quote_char);
  * @param end Position de fin
  * @return char* Sous-chaîne extraite, NULL si erreur
  */
-char	*extract_quoted_content(char *str, int start, int end);
+char	*extract_quoted_content(char *str, int start, int end)
+{
+	// TODO: Implementation
+	(void)str;
+	(void)start;
+	(void)end;
+	return (NULL);
+}
 
 /**
  * @brief Compte le nombre de tokens dans une liste (helper debug)
  * @param tokens Liste de tokens
  * @return int Nombre de tokens
  */
-int		count_tokens(t_token *tokens);
-
-/**
- * @brief Ignore les espaces dans une chaîne
- * @param str Chaîne à parcourir
- * @param i Pointeur vers l'index actuel
- */
-void	skip_whitespace(char *str, int *i);
-
-/**
- * @brief Teste si un caractère est un espace
- * @param c Caractère à tester
- * @return bool true si espace, false sinon
- */
-bool	is_whitespace(char c);
+int	count_tokens(t_token *tokens)
+{
+	// TODO: Implementation
+	(void)tokens;
+	return (0);
+}
 
 /**
  * @brief Libère la mémoire de toute la liste de tokens
  * @param tokens Liste de tokens à libérer
  */
-void	free_tokens(t_token *tokens);
-
-#endif
+void	free_tokens(t_token *tokens)
+{
+	// TODO: Implementation
+	(void)tokens;
+}
