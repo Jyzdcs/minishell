@@ -6,7 +6,7 @@
 /*   By: kclaudan <kclaudan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 00:00:00 by kclaudan          #+#    #+#             */
-/*   Updated: 2025/07/03 11:48:42 by kclaudan         ###   ########.fr       */
+/*   Updated: 2025/07/21 17:39:06 by kclaudan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,12 @@
  * @brief Crée un nouveau token
  * @param value Valeur du token
  * @param type Type du token
+ * @param quoted 1 si le token est entre quotes, 0 sinon
+ * @param expand 1 si le token contient au moins un $, 0 sinon
  * @return t_token* Nouveau token, NULL si erreur
  */
-t_token			*create_token(char *value, t_token_type type);
+t_token			*create_token(char *value, t_token_type type, int quoted,
+					int expand);
 
 /**
  * @brief Ajoute un token à la fin de la liste
@@ -48,9 +51,9 @@ char			*handle_quotes(char *input, int *i);
 /**
  * @brief Vérifie si les quotes sont fermées
  * @param input Chaîne à vérifier
- * @return bool true si quotes fermées, false sinon
+ * @return int 0 si quotes fermées, nombre de quotes non fermées sinon
  */
-bool			is_quote_closed(char *input);
+int				is_quote_closed(char *input);
 
 /**
  * @brief Supprime les quotes externes d'une chaîne
@@ -86,7 +89,7 @@ char			*extract_quoted_content(char *str, int start, int end);
  * @param c Caractère à tester
  * @return bool true si opérateur, false sinon
  */
-bool			is_operator(char c);
+int				is_operator(char c);
 
 /**
  * @brief Détermine le type d'un opérateur
@@ -98,7 +101,7 @@ t_token_type	get_operator_type(char *str);
 /**
  * @brief Calcule la longueur d'un opérateur
  * @param str Chaîne contenant l'opérateur
- * @return int Longueur de l'opérateur (1 pour <, >, | ; 2 pour >>, <<)
+ * @return (int Longueur de l'opérateur (1 pour <, >, |); 2 pour >>, <<)
  */
 int				get_operator_len(char *str);
 
@@ -118,7 +121,7 @@ void			skip_whitespace(char *str, int *i);
  * @param c Caractère à tester
  * @return bool true si espace, false sinon
  */
-bool			is_whitespace(char c);
+int				is_whitespace(char c);
 
 /**
  * @brief Compte le nombre de tokens dans une liste (helper debug)
@@ -126,7 +129,5 @@ bool			is_whitespace(char c);
  * @return int Nombre de tokens
  */
 int				count_tokens(t_token *tokens);
-
-
 
 #endif

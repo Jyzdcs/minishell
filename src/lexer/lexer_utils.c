@@ -6,7 +6,7 @@
 /*   By: kclaudan <kclaudan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 00:00:00 by kclaudan          #+#    #+#             */
-/*   Updated: 2025/07/21 16:43:22 by kclaudan         ###   ########.fr       */
+/*   Updated: 2025/07/21 20:39:59 by kclaudan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
  */
 int	find_closing_quote(char *str, int start, char quote_char)
 {
-	// TODO: Implementation
 	(void)str;
 	(void)start;
 	(void)quote_char;
@@ -37,7 +36,6 @@ int	find_closing_quote(char *str, int start, char quote_char)
  */
 char	*extract_quoted_content(char *str, int start, int end)
 {
-	// TODO: Implementation
 	(void)str;
 	(void)start;
 	(void)end;
@@ -51,7 +49,6 @@ char	*extract_quoted_content(char *str, int start, int end)
  */
 int	count_tokens(t_token *tokens)
 {
-	// TODO: Implementation
 	(void)tokens;
 	return (0);
 }
@@ -62,8 +59,8 @@ int	count_tokens(t_token *tokens)
  */
 void	free_tokens(t_token *tokens)
 {
-	t_token *current;
-	t_token *next;
+	t_token	*current;
+	t_token	*next;
 
 	current = tokens;
 	while (current)

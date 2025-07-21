@@ -6,22 +6,20 @@
 /*   By: kclaudan <kclaudan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 00:00:00 by kclaudan          #+#    #+#             */
-/*   Updated: 2025/07/03 00:00:48 by kclaudan         ###   ########.fr       */
+/*   Updated: 2025/07/21 20:37:44 by kclaudan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lexer.h"
+#include "lexer_utils.h"
 
 /**
  * @brief Détecte si un caractère est un opérateur
  * @param c Caractère à tester
  * @return bool true si opérateur, false sinon
  */
-bool	is_operator(char c)
+int	is_operator(char c)
 {
-	// TODO: Implementation
-	(void)c;
-	return (false);
+	return (c == '|' || c == '<' || c == '>');
 }
 
 /**
@@ -31,9 +29,15 @@ bool	is_operator(char c)
  */
 t_token_type	get_operator_type(char *str)
 {
-	// TODO: Implementation
-	(void)str;
-	return (TOKEN_EOF);
+	if (ft_strncmp(str, "<<", 2) == 0)
+		return (TOKEN_HEREDOC);
+	if (ft_strncmp(str, ">>", 2) == 0)
+		return (TOKEN_REDIR_APPEND);
+	if (ft_strncmp(str, "<", 1) == 0)
+		return (TOKEN_REDIR_IN);
+	if (ft_strncmp(str, ">", 1) == 0)
+		return (TOKEN_REDIR_OUT);
+	return (TOKEN_PIPE);
 }
 
 /**
@@ -43,7 +47,13 @@ t_token_type	get_operator_type(char *str)
  */
 int	get_operator_len(char *str)
 {
-	// TODO: Implementation
-	(void)str;
-	return (0);
+	if (ft_strncmp(str, "<<", 2) == 0)
+		return (2);
+	if (ft_strncmp(str, ">>", 2) == 0)
+		return (2);
+	if (ft_strncmp(str, "<", 1) == 0)
+		return (1);
+	if (ft_strncmp(str, ">", 1) == 0)
+		return (1);
+	return (1);
 }

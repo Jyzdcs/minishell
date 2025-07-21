@@ -6,11 +6,10 @@
 /*   By: kclaudan <kclaudan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 00:00:00 by kclaudan          #+#    #+#             */
-/*   Updated: 2025/07/03 00:00:59 by kclaudan         ###   ########.fr       */
+/*   Updated: 2025/07/21 20:38:47 by kclaudan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lexer.h"
 #include "lexer_utils.h"
 
 /**
@@ -20,19 +19,17 @@
  */
 void	skip_whitespace(char *str, int *i)
 {
-	// TODO: Implementation
-	(void)str;
-	(void)i;
+	while (str[*i] && is_whitespace(str[*i]))
+		(*i)++;
 }
 
 /**
  * @brief Teste si un caractère est un espace
  * @param c Caractère à tester
- * @return bool true si espace, false sinon
+ * @return int 1 si espace, 0 sinon
  */
-bool	is_whitespace(char c)
+int	is_whitespace(char c)
 {
-	// TODO: Implementation
-	(void)c;
-	return (false);
+	return (c == ' ' || c == '\t' || c == '\n' || c == '\r' || c == '\v'
+		|| c == '\f' || c == '\0');
 }

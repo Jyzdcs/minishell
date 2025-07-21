@@ -6,7 +6,7 @@
 /*   By: kclaudan <kclaudan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 22:22:52 by kclaudan          #+#    #+#             */
-/*   Updated: 2025/07/21 16:54:09 by kclaudan         ###   ########.fr       */
+/*   Updated: 2025/07/21 20:38:27 by kclaudan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include "../../include/libft/libft.h"
 # include <readline/history.h>
 # include <readline/readline.h>
-# include <stdbool.h>
 # include <stdio.h>
 # include <stdlib.h>
 
@@ -37,8 +36,8 @@ typedef struct s_token
 {
 	char *value;       // ex : "$PATH", "ls", "-l", "*.c"
 	t_token_type type; // WORD / PIPE / REDIR_IN / …
-	bool quoted;       // vrai si le WORD était entre "…" ou '…'
-	bool expand;       // vrai si le WORD contient au moins un $
+	int quoted;        // vrai si le WORD était entre "…" ou '…'
+	int expand;        // vrai si le WORD contient au moins un $
 	struct s_token	*next;
 
 }					t_token;
