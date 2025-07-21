@@ -6,7 +6,7 @@
 /*   By: kclaudan <kclaudan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 17:02:20 by bguerrou          #+#    #+#             */
-/*   Updated: 2025/07/02 16:19:49 by kclaudan         ###   ########.fr       */
+/*   Updated: 2025/07/03 11:59:59 by kclaudan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "libft/libft.h"
 # include "luffy.h"
+# include "../src/lexer/lexer.h"
 # include <readline/history.h>
 # include <readline/readline.h>
 # include <stdio.h>
