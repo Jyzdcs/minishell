@@ -6,7 +6,7 @@
 /*   By: kclaudan <kclaudan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/02 22:22:52 by kclaudan          #+#    #+#             */
-/*   Updated: 2025/07/03 12:16:15 by kclaudan         ###   ########.fr       */
+/*   Updated: 2025/07/21 16:54:09 by kclaudan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,18 @@ typedef enum e_token_type
 	TOKEN_REDIR_APPEND, // >>
 	TOKEN_HEREDOC,      // <<
 	TOKEN_EOF           // Fin de chaîne
-}		t_token_type;
+}					t_token_type;
 
 // Structure de token pour le lexer
 typedef struct s_token
 {
-	char *value;          // Valeur du token (chaîne)
-	t_token_type type;    // Type du token
-	struct s_token *next; // Pointeur vers le token suivant
-}		t_token;
+	char *value;       // ex : "$PATH", "ls", "-l", "*.c"
+	t_token_type type; // WORD / PIPE / REDIR_IN / …
+	bool quoted;       // vrai si le WORD était entre "…" ou '…'
+	bool expand;       // vrai si le WORD contient au moins un $
+	struct s_token	*next;
+
+}					t_token;
 
 // =============================================================================
 // FONCTIONS PUBLIQUES DU LEXER
@@ -49,12 +52,12 @@ typedef struct s_token
  * @param input Chaîne d'entrée à tokeniser
  * @return t_token* Liste chaînée de tokens, NULL si erreur
  */
-t_token	*lexer(char *input);
+t_token				*lexer(char *input);
 
 /**
  * @brief Libère la mémoire de toute la liste de tokens
  * @param tokens Liste de tokens à libérer
  */
-void	free_tokens(t_token *tokens);
+void				free_tokens(t_token *tokens);
 
 #endif
