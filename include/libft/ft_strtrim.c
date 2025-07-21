@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: kclaudan <kclaudan@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: kclaudan <kclaudan@student.42.fr>          +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2024/10/27 15:50:18 by kclaudan          #+#    #+#             */
 /*   Updated: 2024/10/27 15:50:18 by kclaudan         ###   ########.fr       */
 /*                                                                            */
@@ -23,7 +26,7 @@ qui permet de spécifier les caractères à enlever.
 
 static int	is_set(char c, const char *set)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (set[i])
@@ -35,12 +38,18 @@ static int	is_set(char c, const char *set)
 	return (0);
 }
 
+/**
+ * @brief Supprime les caractères spécifiés au début et à la fin d'une chaîne
+ * @param s1 Chaîne à traiter
+ * @param set Chaîne contenant les caractères à supprimer
+ * @return char* Chaîne sans les caractères spécifiés
+ */
 char	*ft_strtrim(const char *s1, const char *set)
 {
-	int		start;
-	int		end;
-	int		len;
-	char	*tab;
+	int start;
+	int end;
+	int len;
+	char *tab;
 
 	if (!s1)
 		return (ft_strdup(""));
@@ -60,9 +69,10 @@ char	*ft_strtrim(const char *s1, const char *set)
 	return (tab);
 }
 /*
+#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
+
 
 int	main(int ac, char **av)
 {

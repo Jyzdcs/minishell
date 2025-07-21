@@ -6,13 +6,14 @@
 /*   By: kclaudan <kclaudan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 00:00:00 by kclaudan          #+#    #+#             */
-/*   Updated: 2025/07/02 23:15:57 by kclaudan         ###   ########.fr       */
+/*   Updated: 2025/07/21 21:38:02 by kclaudan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EXPANDER_H
 # define EXPANDER_H
 # include "../lexer/lexer.h"
+# include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>
 
