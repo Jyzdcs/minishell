@@ -1,35 +1,35 @@
-NAME = minishell
+NAME    := minishell
 
-SRCS = $(addprefix src/, \
-						main.c )
+SRCDIR  := src
+OBJDIR  := objs
+SRCS    := $(shell find $(SRCDIR) -name '*.c')
+OBJS    := $(patsubst $(SRCDIR)/%.c,$(OBJDIR)/%.o,$(SRCS))
 
-OBJS = $(SRCS: src/%.c=objs/%.o)
+LIBFT   := include/libft/libft.a
 
-LIBFT = include/libft/libft.a
-
-FLAGS = -Wall -Wextra -Werror -lreadline -lhistory
+CC      := cc
+CFLAGS  := -Wall -Wextra -Werror -I include/libft
+LDFLAGS := -L include/libft -lft -lreadline
 
 all: $(NAME)
 
 $(NAME): $(OBJS) $(LIBFT)
-	@cc -o $@ $^ -L include/libft -lft $(FLAGS)
-	@echo COMPILED
+	$(CC) $(OBJS) $(LDFLAGS) -o $@
 
-objs/%.o: src/%.c
-	@mkdir -p objs
-	@cc $(FLAGS) -I include/libft -c $< -o $@
+$(OBJDIR)/%.o: $(SRCDIR)/%.c
+	@mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(LIBFT):
-	@$(MAKE) -C include/libft
+	$(MAKE) -C include/libft
 
 clean:
-	@rm -rf objs
-	@$(MAKE) -C include/libft clean
-	@echo CLEANED
+	$(RM) -r $(OBJDIR)
+	$(MAKE) -C include/libft clean
 
 fclean: clean
-	@rm -f $(NAME)
-	@$(MAKE) -C include/libft fclean
+	$(RM) -f $(NAME)
+	$(MAKE) -C include/libft fclean
 
 re: fclean all
 

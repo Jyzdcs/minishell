@@ -6,11 +6,10 @@
 /*   By: kclaudan <kclaudan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/02 00:00:00 by kclaudan          #+#    #+#             */
-/*   Updated: 2025/07/03 00:01:13 by kclaudan         ###   ########.fr       */
+/*   Updated: 2025/07/21 16:43:22 by kclaudan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lexer.h"
 #include "lexer_utils.h"
 
 /**
@@ -63,6 +62,15 @@ int	count_tokens(t_token *tokens)
  */
 void	free_tokens(t_token *tokens)
 {
-	// TODO: Implementation
-	(void)tokens;
+	t_token *current;
+	t_token *next;
+
+	current = tokens;
+	while (current)
+	{
+		next = current->next;
+		free(current->value);
+		free(current);
+		current = next;
+	}
 }
